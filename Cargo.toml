@@ -1,0 +1,33 @@
+[package]
+name = "turso-compio"
+version = "0.1.0"
+edition = "2024"
+description = "Memory bounded single-runtime CompIO filesystem adapter for embedded Turso"
+documentation = "https://docs.rs/turso-compio"
+repository = "https://github.com/billyb2/turso-compio"
+keywords = ["turso", "compio", "database", "async"]
+categories = ["database", "asynchronous", "filesystem"]
+license = "MIT OR Apache-2.0"
+include = [
+    "/Cargo.toml",
+    "/Cargo.lock",
+    "/src/**",
+    "/examples/**",
+    "/tests/**",
+    "/README*",
+    "/LICENSE*",
+    "/COPYING*",
+]
+
+[dependencies]
+anyhow = "1"
+turso = { version = "=0.7.2", default-features = false }
+
+[target.'cfg(any(target_os = "linux", target_os = "macos"))'.dependencies]
+compio = { version = "0.19.2", default-features = false, features = ["runtime", "io", "fs"] }
+libc = "0.2"
+log = "0.4"
+synchrony = { version = "0.1.9", default-features = false, features = ["mutex", "event"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+io-uring = "0.7"
