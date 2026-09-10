@@ -5,6 +5,7 @@ edition = "2024"
 description = "Memory bounded single-runtime CompIO filesystem adapter for embedded Turso"
 documentation = "https://docs.rs/turso-compio"
 repository = "https://github.com/billyb2/turso-compio"
+readme = "README.md"
 keywords = ["turso", "compio", "database", "async"]
 categories = ["database", "asynchronous", "filesystem"]
 license = "MIT OR Apache-2.0"
